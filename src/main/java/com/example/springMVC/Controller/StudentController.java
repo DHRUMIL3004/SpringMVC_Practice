@@ -1,0 +1,46 @@
+package com.example.springMVC.Controller;
+
+
+import com.example.springMVC.Model.Student;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
+
+@Controller
+public class StudentController {
+
+    @Value("${countries}")
+    private List<String> countries;
+
+    @Value("${languages}")
+    private List<String> languages;
+
+    @RequestMapping("/showForm")
+    public String showForm(Model model){
+
+// create student object
+        Student theStudent=new Student();
+// add student object to the model
+        model.addAttribute("student",theStudent);
+
+        model.addAttribute("countries" , countries);
+
+        model.addAttribute("languages" , languages);
+
+        return "studentForm";
+    }
+
+    @PostMapping("/processStudentForm")
+    public String processStudentForm(@ModelAttribute("student") Student theStudent){
+
+        //log the input data
+        System.out.println("Student Name is ::  "+theStudent.getFirstName()+" "+theStudent.getLastName());
+
+        return "processStudentForm";
+    }
+}
