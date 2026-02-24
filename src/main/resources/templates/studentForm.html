@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Student Registation Form</title>
@@ -23,6 +23,11 @@
              th:each="tempLang : ${languages}"
              th:value="${tempLang}"
              th:text="${tempLang}" />
+      <br><br>
+
+      Choose Your Favorite Operating System :
+      <input type="checkbox" th:field="*{favOs}" th:each="tempOs:${operatingSys}" th:value="${tempOs}" th:text="${tempOs}"/>
+
 
       <br><br>
       <input type="submit" value="Submit">

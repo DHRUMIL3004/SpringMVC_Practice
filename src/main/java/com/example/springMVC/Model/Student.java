@@ -1,11 +1,13 @@
 package com.example.springMVC.Model;
 
+import java.util.List;
+
 public class Student {
     private String firstName;
     private String lastName;
     private String country;
     private String favLanguage;
-
+    private List<String> FavOs;
 
     public Student(){
 
@@ -41,5 +43,13 @@ public class Student {
 
     public void setFavLanguage(String favLanguage) {
         this.favLanguage = favLanguage;
+    }
+
+    public List<String> getFavOs() {
+        return FavOs;
+    }
+
+    public void setFavOs(List<String> favOs) {
+        FavOs = favOs;
     }
 }

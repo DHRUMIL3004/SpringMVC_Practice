@@ -5,14 +5,17 @@
     <title>Student Registation Form</title>
 </head>
 <body>
-   Student Registation data :
-
+  <h3><b> Student Registation data :</b> </h3>
 <br><br>
 The Student is confirmed : <span th:text="${student.firstName} + ' ' + ${student.lastName}"> </span>
 <br><br>
 Country : <span th:text="${student.country} "> </span>
    <br><br>
-Faverate Language : <span th:text="${student.favLanguage}"></span>
-
+Favorite Language : <span th:text="${student.favLanguage}"></span>
+   <br><br>
+   Favorite Operating System :
+<ul>
+    <li th:each="tempOs:${student.favOs}" th:text="${tempOs}"/>
+</ul>
 </body>
 </html>

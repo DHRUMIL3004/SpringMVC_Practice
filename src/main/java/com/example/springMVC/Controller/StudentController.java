@@ -20,7 +20,10 @@ public class StudentController {
     @Value("${languages}")
     private List<String> languages;
 
-    @RequestMapping("/showForm")
+    @Value("${operatingSys}")
+    private List<String> operatingSys;
+
+    @RequestMapping("/showStudentForm")
     public String showForm(Model model){
 
 // create student object
@@ -31,6 +34,8 @@ public class StudentController {
         model.addAttribute("countries" , countries);
 
         model.addAttribute("languages" , languages);
+
+        model.addAttribute("operatingSys",operatingSys);
 
         return "studentForm";
     }
